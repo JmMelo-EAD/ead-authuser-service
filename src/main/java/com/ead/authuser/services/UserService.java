@@ -2,6 +2,9 @@ package com.ead.authuser.services;
 
 import com.ead.authuser.dtos.UserRecordDto;
 import com.ead.authuser.models.UserModel;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 
 import java.util.List;
 import java.util.Optional;
@@ -26,4 +29,7 @@ public interface UserService {
     UserModel updatePassword(UserRecordDto userRecordDto, UserModel userModel);
 
     UserModel updateImage(UserRecordDto userRecordDto, UserModel byId);
+
+    Page<UserModel> findAll(Specification<UserModel> spec, Pageable pageable);
+
 }
